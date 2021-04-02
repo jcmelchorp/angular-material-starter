@@ -1,0 +1,13 @@
+{
+  "app-name": "Angular Material Starter",
+  "language-es-name": "Spanish",
+  "language-en-name": "English",
+  "home": "Home",
+  "link": "link",
+  "notfound-module-message": "How you get here? This part don't even exist",
+  "notfound-module-description": "Page not found",
+  "under-module-title": "Module under construction",
+  "under-module-description": "This module is under development, check it out soon",
+  "card-header-title": "The Wellcome Page",
+  "card-header-description": "You can use this as header of lazy loaded modules"
+}

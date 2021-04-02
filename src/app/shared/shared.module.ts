@@ -2,6 +2,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { appearanceModules } from '../material';
 
 import { sharedComponents } from './components';
@@ -13,9 +15,10 @@ import { CardHeaderComponent } from './components/card-header/card-header.compon
   imports: [
     CommonModule,
     RouterModule,
+    TranslateModule,
     ...appearanceModules,
   ],
-  exports: [...sharedComponents],
+  exports: [...sharedComponents, CommonModule, TranslateModule],
   declarations: [...sharedComponents],
   providers: [...sharedServices]
 })

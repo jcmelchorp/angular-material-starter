@@ -1,0 +1,13 @@
+{
+  "app-name": "Iniciador para Angular Material",
+  "language-es-name": "Español",
+  "language-en-name": "Inglés",
+  "home": "Inicio",
+  "link": "enlace",
+  "notfound-module-message": "Probablemente estas aquí por un error, te sugerimos regresar",
+  "notfound-module-description": "Pagina no encontrada",
+  "under-module-title": "Zona en construcción",
+  "under-module-description": "Esta sección aún se encuentra en desarrollo, podrás consultarla pronto",
+  "card-header-title": "La Página de Inicio",
+  "card-header-description": "Puedes usar este encabezado como título de módulos externos"
+}
