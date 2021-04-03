@@ -10,9 +10,21 @@ body {
 }
 .app-name {
   font-family: "Modak", cursive;
-  font-size: 2rem;
-  text-shadow: 0 1px 0 rgb(180, 180, 180);
+  font-size: 3rem;
+  text-shadow: -2px 2px 2px rgb(160, 160, 160);
   color: $orange-color;
+}
+.view-title {
+  color: $bg-main;
+  font-size: calc(2rem + 1.5vw);
+  font-weight: 800;
+  font-family: "fredoka one", cursive;
+  text-shadow: -3px -2px 1px $text-shadow-color;
+}
+.view-subtitle {
+  font-family: "comfortaa";
+  font-size: calc(0.8rem + 1vw);
+  font-weight: 400;
 }
 .head-component {
   font-family: "Love Ya Like A Sister";

@@ -10,6 +10,7 @@ import { sharedComponents } from './components';
 import { sharedServices } from './services';
 
 import { DummyTextComponent } from './components/dummy-text/dummy-text.component';
+import { BrandButtonComponent } from './components/brand-button/brand-button.component';
 export const sharedModules: any[] = [
   CommonModule,
   RouterModule,
@@ -24,7 +25,7 @@ export const sharedModules: any[] = [
     ...sharedModules,
     ...sharedComponents,
   ],
-  declarations: [...sharedComponents],
+  declarations: [...sharedComponents, BrandButtonComponent],
   providers: [...sharedServices]
 })
 export class SharedModule {

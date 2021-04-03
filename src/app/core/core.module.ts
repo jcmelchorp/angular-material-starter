@@ -1,4 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { appearanceModules } from '../material';
 import { SharedModule } from './../shared/shared.module';
@@ -7,14 +8,17 @@ import { coreComponents } from './components';
 import { layoutComponents } from './layout';
 import { coreServices } from './services';
 
-import { MainContentComponent } from './layout/main-content/main-content.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
     ...coreComponents,
     ...layoutComponents,
+    SettingsComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     ...appearanceModules
   ],

@@ -22,6 +22,7 @@ import { ThemeService } from '../../services/theme.service';
 export class HeaderComponent implements OnInit {
   @Input() isHandset: boolean;
   isDarkTheme: Observable<boolean>;
+  
   faGlobe = faGlobe;
   faBars = faBars;
   constructor(
