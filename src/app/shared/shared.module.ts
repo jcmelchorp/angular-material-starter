@@ -1,5 +1,5 @@
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
@@ -8,28 +8,29 @@ import { appearanceModules } from '../material';
 
 import { sharedComponents } from './components';
 import { sharedServices } from './services';
-
-import { CardHeaderComponent } from './components/card-header/card-header.component';
-
+import { DummyTextComponent } from './components/dummy-text/dummy-text.component';
+export const sharedModules: any[] = [
+  CommonModule,
+  RouterModule,
+  TranslateModule,
+];
 @NgModule({
   imports: [
-    CommonModule,
-    RouterModule,
-    TranslateModule,
+    ...sharedModules,
     ...appearanceModules,
   ],
-  exports: [...sharedComponents, CommonModule, TranslateModule],
-  declarations: [...sharedComponents],
+  exports: [
+    ...sharedModules,
+    ...sharedComponents,
+  ],
+  declarations: [...sharedComponents, DummyTextComponent],
   providers: [...sharedServices]
 })
 export class SharedModule {
-  /* static forRoot(): ModuleWithProviders<SharedModule> {
+  static forRoot(): ModuleWithProviders<SharedModule> {
     return {
       ngModule: SharedModule,
-      providers: [
-        LayoutService,
-        ThemeService,
-      ]
+      providers: [...sharedServices]
     }
-  } */
+  }
 }

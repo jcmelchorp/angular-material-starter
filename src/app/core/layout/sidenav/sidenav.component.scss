@@ -1,10 +1,9 @@
 .sidenav {
-  width: 200px;
-  border:none;
-  //background: inherit;
+  width: max-content;
+  //min-width: fit-content;
+  //border:none;
   mat-toolbar {
     background: inherit;
-
   }
 }
 

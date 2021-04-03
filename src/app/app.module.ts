@@ -28,7 +28,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule,
+    SharedModule.forRoot(),
     CoreModule,
     TranslateModule.forRoot({
       defaultLanguage: 'es',
