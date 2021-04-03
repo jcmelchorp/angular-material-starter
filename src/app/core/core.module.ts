@@ -6,13 +6,13 @@ import { SharedModule } from './../shared/shared.module';
 import { coreComponents } from './components';
 import { layoutComponents } from './layout';
 import { coreServices } from './services';
+
 import { MainContentComponent } from './layout/main-content/main-content.component';
 
 @NgModule({
   declarations: [
     ...coreComponents,
     ...layoutComponents,
-    MainContentComponent
   ],
   imports: [
     SharedModule,

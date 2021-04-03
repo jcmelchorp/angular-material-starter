@@ -1,4 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { OverlayContainer } from '@angular/cdk/overlay';
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError, Router } from '@angular/router';
 
@@ -10,45 +11,37 @@ import { map, shareReplay } from 'rxjs/operators';
 import { LayoutService } from '../services/layout.service';
 import { ThemeService } from '../services/theme.service';
 
-
-
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-  toggleSidenavLeft: EventEmitter<any> = new EventEmitter();
   isDarkTheme: Observable<boolean>;
   isHandset$: Observable<boolean>;
   loading = false;
-  /*  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-     .pipe(
-       map(result => result.matches),
-       shareReplay()
-     ); */
   constructor(
-    public translate: TranslateService,
     private themeService: ThemeService,
     private layoutService: LayoutService,
+    private overlay: OverlayContainer,
     private router: Router
   ) {
-    translate.addLangs(['es', 'en']);
-    // this language will be used as a fallback when a translation isn't found in the current language
-    translate.setDefaultLang('en');
-    // the lang to use, if the lang isn't available, it will use the current loader to get them
-    translate.use('en');
     this.router.events.subscribe((event: RouterEvent) => {
       this.navigationInterceptor(event)
     });
   }
   ngOnInit(): void {
     this.isDarkTheme = this.themeService.isDarkTheme;
+    this.isDarkTheme.subscribe(isDark => {
+      if (isDark) {
+        this.overlay.getContainerElement().classList.add('dark-theme');
+      } else {
+        this.overlay.getContainerElement().classList.remove('dark-theme');
+      }
+    });
     this.isHandset$ = this.layoutService.isHandset$;
   }
-  switchLang(lang: string) {
-    this.translate.use(lang);
-  }
+
   // Shows and hides the loading spinner during RouterEvent changes
   navigationInterceptor(event: RouterEvent): void {
     switch (true) {

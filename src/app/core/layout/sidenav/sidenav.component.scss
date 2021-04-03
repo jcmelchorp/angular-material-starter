@@ -1,12 +1,17 @@
+@import "./../../../../assets/theme/colors";
 .sidenav {
   width: max-content;
-  //min-width: fit-content;
-  //border:none;
+  border: none;
   mat-toolbar {
     background: inherit;
   }
 }
-
+.active {
+  color: $success-color;
+}
 .sidenav-container {
   height: 100%;
+}
+.sidenav-content {
+  border-radius: 5px;
 }

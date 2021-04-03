@@ -1,5 +1,5 @@
 <div [ngClass]="{'dark-theme': isDarkTheme|async}" fxLayout="column" fxFlexFill>
-  <app-header class="sticky-top" [isHandset]="isHandset$|async"></app-header>
+  <app-header class="fix-top" [isHandset]="isHandset$|async"></app-header>
   <div *ngIf="loading">
     <mat-progress-bar mode="query" color="primary"> </mat-progress-bar>
   </div>

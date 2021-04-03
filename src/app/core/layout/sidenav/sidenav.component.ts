@@ -16,15 +16,12 @@ export class SidenavComponent implements OnInit {
   constructor(
     private layoutService: LayoutService,
     public translate: TranslateService,
-
   ) {
-    translate.use('es');
+    //translate.use('es');
     this.layoutService.toggleSidenavLeft.subscribe(() => {
       this.sidenavLeft.toggle();
     });
   }
-  switchLang(lang: string) {
-    this.translate.use(lang);
-  }
+
   ngOnInit() { }
 }

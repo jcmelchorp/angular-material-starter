@@ -1,49 +1,35 @@
-<mat-toolbar>
+<mat-toolbar class="border-bottom">
   <mat-toolbar-row fxLayout="row warp" fxLayoutAlign="space-between center">
     <div fxLayout="row" fxLayoutAlign="start center">
-      <button *ngIf="isHandset" type="button" aria-label="Toggle sidenav" mat-icon-button
-        (click)="toggleSidenavLeft($event)">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      <fa-icon *ngIf="isHandset" mat-icon-button [icon]="faBars" (click)="toggleSidenavLeft($event)"
+        aria-label="Side nav toggle icon"></fa-icon>
+      <button class="ml-2" mat-button type="button" [routerLink]="['/']">
+        <span class="app-name">{{ "app-name" | translate }}</span>
       </button>
-      <span>{{ "app-name" | translate }}</span>
     </div>
     <div fxLayout="row" fxLayoutAlign="end center">
-      <!-- <button type="button" aria-label="Alternar menu" mat-icon-button [matMenuTriggerFor]="optionsMenu">
-        <mat-icon>more_vert</mat-icon>
-      </button> -->
       <button type="button" aria-label="Alternar idioma" mat-icon-button [matMenuTriggerFor]="languageMenu">
         <div fxLayout="column" fxLayoutAlign="end center">
           <mat-icon>language</mat-icon>
           <span style="margin-top: -15px;">{{ translate.currentLang }}</span>
         </div>
       </button>
-      <!-- <mat-label for="darkSwitch"></mat-label>
-      <mat-slide-toggle [checked]="isDarkTheme | async" labelPosition="before"
-        (change)="toggleDarkTheme($event.checked)" #darkSwitch>
-      </mat-slide-toggle> -->
+      <mat-menu #languageMenu="matMenu">
+        <div mat-menu-item (click)="switchLang('es')">
+          <mat-icon svgIcon="es" aria-hidden="false" aria-label="español flag icon"></mat-icon>
+          {{ "language-es-name" | translate }}
+        </div>
+        <div mat-menu-item (click)="switchLang('en')">
+          <mat-icon svgIcon="en" aria-hidden="false" aria-label="english flag icon"></mat-icon>
+          {{ "language-en-name" | translate }}
+        </div>
+      </mat-menu>
+      <button type="button" aria-label="Alternar tema" mat-icon-button (click)="toggleDarkTheme()">
+        <div fxLayout="column" fxLayoutAlign="end center">
+          <mat-icon>{{(isDarkTheme|async)?'nightlight':'light_mode'}}</mat-icon>
+          <span style="margin-top: -15px;">{{ (isDarkTheme|async)?'off':'on' }}</span>
+        </div>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-menu #languageMenu="matMenu" fxLayoutAlign="end">
-  <ng-template matMenuContent>
-    <div mat-menu-item (click)="switchLang('es')">
-      <mat-icon svgIcon="es" aria-hidden="false" aria-label="español flag icon"></mat-icon>
-      {{ "language-es-name" | translate }}
-    </div>
-    <button mat-menu-item (click)="switchLang('en')">
-      <mat-icon svgIcon="en" aria-hidden="false" aria-label="english flag icon"></mat-icon>
-      {{ "language-en-name" | translate }}
-    </button>
-  </ng-template>
-</mat-menu>
-<!-- <mat-menu #optionsMenu="matMenu">
-  <ng-template matMenuContent>
-    <div mat-menu-item (click)="toggleDarkTheme($event.checked)">
-      <fa-icon matListAvatar [icon]="(isDarkTheme|async)?faSun:faMoon" size="lg"></fa-icon>
-    </div>
-    <div mat-menu-item>
-      <fa-icon matListAvatar [icon]="faGlobe" size="lg"></fa-icon>
-      <span>Idioma</span>
-    </div>
-  </ng-template>
-</mat-menu> -->

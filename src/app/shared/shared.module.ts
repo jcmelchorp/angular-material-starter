@@ -8,6 +8,7 @@ import { appearanceModules } from '../material';
 
 import { sharedComponents } from './components';
 import { sharedServices } from './services';
+
 import { DummyTextComponent } from './components/dummy-text/dummy-text.component';
 export const sharedModules: any[] = [
   CommonModule,
@@ -23,7 +24,7 @@ export const sharedModules: any[] = [
     ...sharedModules,
     ...sharedComponents,
   ],
-  declarations: [...sharedComponents, DummyTextComponent],
+  declarations: [...sharedComponents],
   providers: [...sharedServices]
 })
 export class SharedModule {
